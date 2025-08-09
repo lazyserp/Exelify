@@ -1,18 +1,17 @@
 {% extends "base.html.j2" %}
 {% block content %}
 
-<section>
+<section class="panel">
     <h2>Upload</h2>
     <form id="upload-form" enctype="multipart/form-data" hx-post="/upload" hx-target="#preview" hx-swap="outerHTML">
         <input type="file" name="file" accept=".csv,.xlsx" />
-        <!-- Options you’ll wire later with pandas -->
-        <label><input type="checkbox" name="parse_dates"> Parse dates</label>
-        <label><input type="checkbox" name="dayfirst"> Day first (DD/MM/YYYY)</label>
+        <label class="inline"><input type="checkbox" name="parse_dates" /> Parse dates</label>
+        <label class="inline"><input type="checkbox" name="dayfirst" /> Day first (DD/MM/YYYY)</label>
         <button type="submit">Upload</button>
     </form>
 </section>
 
-<section id="preview" hx-get="/ping" hx-trigger="load" hx-swap="outerHTML">
+<section id="preview" class="panel" hx-get="/ping" hx-trigger="load" hx-swap="outerHTML">
     <p>Loading preview…</p>
 </section>
 

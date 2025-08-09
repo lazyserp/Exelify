@@ -1,0 +1,74 @@
+:root {
+  --bg: #0b0b0c;
+  --fg: #e8e8e8;
+  --card: #141416;
+  --muted: #9aa0a6;
+  --border: #232426;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg); color: var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.topbar {
+  position: sticky; top: 0;
+  background: #111; border-bottom: 1px solid #222;
+  padding: 12px 16px;
+}
+
+.container { max-width: 1100px; margin: 20px auto; padding: 0 16px; }
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.panel h2 { margin-top: 0; }
+
+button {
+  background: #2b63ff; color: #fff;
+  border: none; padding: 8px 12px;
+  border-radius: 8px; cursor: pointer;
+}
+button:hover { filter: brightness(1.05); }
+
+.inline { margin-left: 10px; }
+
+.table-scroll {
+  overflow: auto;
+  max-height: 480px;
+  border: 1px solid #2a2b2e;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.placeholder { color: var(--muted); }
+
+.schema { margin-top: 12px; }
+
+.spinner {
+  position: fixed; right: 16px; bottom: 16px;
+  width: 14px; height: 14px;
+  border: 2px solid #555; border-left-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: none;
+}
+
+/* Show spinner while any HTMX request is in-flight */
+.htmx-request ~ #spinner, .htmx-request #spinner { display: block; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Optional: table reset for pandas .to_html() output */
+table.preview { border-collapse: collapse; width: 100%; }
+table.preview th, table.preview td {
+  padding: 8px; border-bottom: 1px solid #2a2b2e; text-align: left;
+}
+table.preview th { font-weight: 600; }

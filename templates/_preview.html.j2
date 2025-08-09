@@ -1,8 +1,29 @@
-<section id="preview">
+<section id="preview" class="panel">
+  {# Carry the doc_id so future HTMX posts include it automatically #}
+  {% if doc_id %}
+  <input type="hidden" name="doc_id" value="{{ doc_id }}">
+  {% endif %}
+
   <h2>Preview</h2>
   <p>{{ message }}</p>
 
-  <form hx-post="/demo-post" hx-target="#preview" hx-swap="outerHTML">
-    <button type="submit">Click to POST</button>
+  {% if rows %}
+  <div class="table-scroll">
+    {{ rows|safe }}
+  </div>
+  {% else %}
+  <div class="placeholder">No rows to show yet.</div>
+  {% endif %}
+
+  {% if schema %}
+  <details class="schema">
+    <summary>Schema</summary>
+    <pre>{{ schema }}</pre>
+  </details>
+  {% endif %}
+
+  {# Optional small form to verify we can load the saved DataFrame #}
+  <form hx-post="/info" hx-target="#preview" hx-swap="outerHTML" style="margin-top:12px">
+    <button type="submit">Check state</button>
   </form>
 </section>

@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exelify</title>
+
+    <!-- HTMX -->
     <script src="https://unpkg.com/htmx.org@1.9.12"></script>
 
-    <title> Exelify </title>
-    
-    <script src=""https://unpkg.com/htmx.org@1.9.12"></script>
-
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
 </head>
 
 <body>
-    <h1> Exelify </h1>
-    <main>
-        {% block content %}
-        {% endblock %}
+    <header class="topbar">
+        <h1>Exelify</h1>
+    </header>
 
+    <main class="container">
+        {% block content %}{% endblock %}
     </main>
+
+    <div id="spinner" class="spinner" aria-hidden="true"></div>
 </body>
+
 </html>
