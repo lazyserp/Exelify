@@ -1,6 +1,8 @@
-<section id="#preview">
+<section id="preview">
   <h2>Preview</h2>
-  <p>{{ message }} </p>
+  <p>{{ message }}</p>
 
-
+  <form hx-post="/demo-post" hx-target="#preview" hx-swap="outerHTML">
+    <button type="submit">Click to POST</button>
+  </form>
 </section>
