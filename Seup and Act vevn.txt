@@ -1,0 +1,5 @@
+SETUP - python -m venv .venv
+ACTIVATE - WIN(.\.venv\Scripts\activate)
+            MAC (source .venv/bin/activate)
+
+deactivate - toend

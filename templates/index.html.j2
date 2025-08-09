@@ -1,0 +1,9 @@
+{% extends 'base.html.j2'%}
+{% block content %}
+<section id="preview"
+          hx-get="/ping"
+          hx-trigger="load"
+          hx-swap="outerHTML">
+    <p>Loading Preview</p>
+</section>
+{% endblock %}
